@@ -1,0 +1,17 @@
+{
+  "name": "server",
+  "version": "0.0.1",
+  "description": "server side",
+  "main": "app.js",
+  "scripts": {
+    "start": "npx nodemon ./bin/server"
+  },
+  "author": "Brendon Willian de Carvalho Trindade Mota",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
