@@ -9,7 +9,9 @@
   "author": "Brendon Willian de Carvalho Trindade Mota",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "js-yaml": "^3.13.1",
+    "mongoose": "^5.5.9"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"

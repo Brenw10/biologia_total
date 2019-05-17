@@ -1,7 +1,10 @@
 const express = require('express');
 const app = express();
 
-const users = require('./routes/users');
+const student = require('./routes/student');
+const course = require('./routes/course');
+
+app.use(express.json());
 
 app.use((_, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -9,6 +12,7 @@ app.use((_, res, next) => {
   next();
 });
 
-app.use('/users', users);
+app.use('/students', student);
+app.use('/courses', course);
 
 module.exports = app;

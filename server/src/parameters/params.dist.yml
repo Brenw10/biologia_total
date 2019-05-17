@@ -1,0 +1,7 @@
+mongodb:
+  local: localhost
+  port: 27017
+  database: biologia
+  config:
+    useNewUrlParser: true
+    useFindAndModify: false
