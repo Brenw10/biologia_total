@@ -20,9 +20,15 @@ export default class StudentEdition extends React.Component {
     this.setState({ student });
   }
   save() {
-    student
-      .update(this.state._id, this.state)
-      .then(this.props.onClose);
+    if (this.state.student._id) {
+      student
+        .update(this.state.student._id, this.state.student)
+        .then(this.props.onClose);
+    } else {
+      student
+        .create(this.state.student)
+        .then(this.props.onClose);
+    }
   }
   render() {
     return (

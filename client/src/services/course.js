@@ -3,4 +3,8 @@ import { API } from '../core/parameters';
 
 const getAll = () => Axios.get(`${API}/courses`).then(({ data }) => data);
 
-export default { getAll };
+const update = (id, data) => Axios.put(`${API}/courses/${id}`, data);
+
+const create = data => Axios.post(`${API}/courses`, data);
+
+export default { getAll, update, create };

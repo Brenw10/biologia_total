@@ -2,9 +2,9 @@ import React from 'react';
 import HeaderBar from './components/HeaderBar';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Student from './views/Student';
-import CourseTable from './components/CourseTable';
 import RegistrationTable from './components/RegistrationTable';
 import { Grid } from '@material-ui/core';
+import Course from './views/Course';
 
 export default function App() {
   return (
@@ -14,7 +14,7 @@ export default function App() {
         <Grid item xs={1}></Grid>
         <Grid item xs={10}>
           <Route path="/students" component={Student} />
-          <Route path="/courses" component={CourseTable} />
+          <Route path="/courses" component={Course} />
           <Route path="/registrations" component={RegistrationTable} />
         </Grid>
         <Grid item xs={1}></Grid>

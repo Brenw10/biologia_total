@@ -1,16 +1,9 @@
 import React from 'react';
-import { Paper, Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
-import course from '../services/course';
+import { Paper, Table, TableHead, TableRow, TableCell, TableBody, IconButton } from '@material-ui/core';
+import PropTypes from 'prop-types';
+import EditIcon from '@material-ui/icons/Edit';
 
-export default class Course extends React.Component {
-  state = {
-    courses: [],
-  }
-  componentDidMount() {
-    course
-      .getAll()
-      .then(courses => this.setState({ courses }))
-  }
+export default class CourseTable extends React.Component {
   render() {
     return (
       <Paper>
@@ -19,13 +12,19 @@ export default class Course extends React.Component {
             <TableRow>
               <TableCell align="center">Curso</TableCell>
               <TableCell align="center">Descrição</TableCell>
+              <TableCell align="center">Ações</TableCell>
             </TableRow>
           </TableHead>
-          {this.state.courses.map((row, key) => (
+          {this.props.courses.map((row, key) => (
             <TableBody key={key}>
               <TableRow>
                 <TableCell align="center">{row.title}</TableCell>
                 <TableCell align="center">{row.description ? row.description : 'N/A'}</TableCell>
+                <TableCell align="center">
+                  <IconButton onClick={() => this.props.onClickEdit(row)}>
+                    <EditIcon />
+                  </IconButton>
+                </TableCell>
               </TableRow>
             </TableBody>
           ))}
@@ -34,3 +33,8 @@ export default class Course extends React.Component {
     );
   }
 }
+
+CourseTable.propTypes = {
+  onClickEdit: PropTypes.func.isRequired,
+  students: PropTypes.array.isRequired,
+};
