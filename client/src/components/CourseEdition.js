@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Dialog, DialogTitle, TextField, DialogContent, DialogActions, Button } from '@material-ui/core';
-import student from '../services/student';
+import course from '../services/course';
 
-export default class StudentEdition extends React.Component {
+export default class CourseEdition extends React.Component {
   state = {
-    student: {
-      name: '',
-      email: '',
-      birthday: '',
+    course: {
+      title: '',
+      description: '',
     },
     open: false,
   }
@@ -16,17 +15,17 @@ export default class StudentEdition extends React.Component {
     return props.open !== state.open ? props : null;
   }
   onChange = key => event => {
-    const student = Object.assign(this.state.student, { [key]: event.target.value });
-    this.setState({ student });
+    const course = Object.assign(this.state.course, { [key]: event.target.value });
+    this.setState({ course });
   }
   save() {
-    if (this.state.student._id) {
-      student
-        .update(this.state.student._id, this.state.student)
+    if (this.state.course._id) {
+      course
+        .update(this.state.course._id, this.state.course)
         .then(this.props.onClose);
     } else {
-      student
-        .create(this.state.student)
+      course
+        .create(this.state.course)
         .then(this.props.onClose);
     }
   }
@@ -37,31 +36,23 @@ export default class StudentEdition extends React.Component {
         open={this.props.open}
         onClose={this.props.onClose}
       >
-        <DialogTitle>Estudante</DialogTitle>
+        <DialogTitle>Curso</DialogTitle>
         <DialogContent>
           <TextField
             autoFocus
-            label="Nome"
+            label="Titulo"
             type="text"
             fullWidth
-            value={this.state.student.name}
-            onChange={this.onChange('name')}
+            value={this.state.course.title}
+            onChange={this.onChange('title')}
           />
           <TextField
             margin="dense"
-            label="Email"
-            type="email"
+            label="Descrição"
+            type="text"
             fullWidth
-            value={this.state.student.email}
-            onChange={this.onChange('email')}
-          />
-          <TextField
-            label="Data de Nascimento"
-            type="date"
-            fullWidth
-            defaultValue='2019-01-01'
-            value={this.state.student.birthday}
-            onChange={this.onChange('birthday')}
+            value={this.state.course.description}
+            onChange={this.onChange('description')}
           />
         </DialogContent>
         <DialogActions>
@@ -77,8 +68,8 @@ export default class StudentEdition extends React.Component {
   }
 }
 
-StudentEdition.propTypes = {
-  student: PropTypes.object,
+CourseEdition.propTypes = {
+  course: PropTypes.object,
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
 };

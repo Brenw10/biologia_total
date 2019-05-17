@@ -24,3 +24,7 @@ body .float-right-bottom {
   right: 50px;
   bottom: 50px;
 }
+
+.container {
+  padding: 20px 30px;
+}

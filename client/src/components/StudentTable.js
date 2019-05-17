@@ -1,12 +1,20 @@
 import React from 'react';
-import { Paper, Table, TableHead, TableRow, TableCell, TableBody, IconButton } from '@material-ui/core';
+import { Paper, Table, TableHead, TableRow, TableCell, TableBody, IconButton, TextField } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import PropTypes from 'prop-types';
 
 export default class StudentTable extends React.Component {
   render() {
     return (
-      <Paper>
+      <Paper className="container">
+        <TextField
+          label="Procurar"
+          placeholder="Digite nome ou email"
+          fullWidth
+          margin="normal"
+          InputLabelProps={{ shrink: true }}
+          helperText="Busque por algum aluno"
+        />
         <Table>
           <TableHead>
             <TableRow>

@@ -6,6 +6,6 @@ const getAll = () => Course.find().exec();
 
 const create = data => new Course(data).save();
 
-const update = (id, data) => Students.findByIdAndUpdate(id, data, { new: true });
+const update = (id, data) => Course.findByIdAndUpdate(id, data, { new: true });
 
 module.exports = { getAll, getById, create, update };

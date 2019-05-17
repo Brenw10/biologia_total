@@ -6,7 +6,7 @@ import EditIcon from '@material-ui/icons/Edit';
 export default class CourseTable extends React.Component {
   render() {
     return (
-      <Paper>
+      <Paper className="container">
         <Table>
           <TableHead>
             <TableRow>
@@ -36,5 +36,5 @@ export default class CourseTable extends React.Component {
 
 CourseTable.propTypes = {
   onClickEdit: PropTypes.func.isRequired,
-  students: PropTypes.array.isRequired,
+  courses: PropTypes.array.isRequired,
 };
