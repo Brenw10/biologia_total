@@ -4,15 +4,20 @@ import { Dialog, DialogTitle, TextField, DialogContent, DialogActions, Button } 
 import student from '../services/student';
 
 export default class StudentEdition extends React.Component {
-  state = {}
-  static getDerivedStateFromProps({ student }, { _id }) {
-    if (student._id !== _id) {
-      return student;
-    }
-    return null;
+  state = {
+    student: {
+      name: '',
+      email: '',
+      birthday: '',
+    },
+    open: false,
+  }
+  static getDerivedStateFromProps(props, state) {
+    return props.open !== state.open ? props : null;
   }
   onChange = key => event => {
-    this.setState({ [key]: event.target.value });
+    const student = Object.assign(this.state.student, { [key]: event.target.value });
+    this.setState({ student });
   }
   save() {
     student
@@ -33,7 +38,7 @@ export default class StudentEdition extends React.Component {
             label="Name"
             type="text"
             fullWidth
-            value={this.state.name}
+            value={this.state.student.name}
             onChange={this.onChange('name')}
           />
           <TextField
@@ -41,7 +46,7 @@ export default class StudentEdition extends React.Component {
             label="Email"
             type="email"
             fullWidth
-            value={this.state.email}
+            value={this.state.student.email}
             onChange={this.onChange('email')}
           />
           <TextField
@@ -49,7 +54,7 @@ export default class StudentEdition extends React.Component {
             type="date"
             fullWidth
             defaultValue='2019-01-01'
-            value={this.state.birthday}
+            value={this.state.student.birthday}
             onChange={this.onChange('birthday')}
           />
         </DialogContent>

@@ -2,12 +2,9 @@ import React from 'react';
 import { Paper, Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
 import course from '../services/course';
 
-class Course extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      courses: [],
-    };
+export default class Course extends React.Component {
+  state = {
+    courses: [],
   }
   componentDidMount() {
     course
@@ -37,5 +34,3 @@ class Course extends React.Component {
     );
   }
 }
-
-export default Course;
