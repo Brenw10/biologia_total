@@ -1,6 +1,7 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
 import { Link } from "react-router-dom";
+import '../styles/HeaderBar.css';
 
 function HeaderBar() {
   return (
