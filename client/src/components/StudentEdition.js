@@ -59,7 +59,7 @@ export default class StudentEdition extends React.Component {
             label="Data de Nascimento"
             type="date"
             fullWidth
-            defaultValue='2019-01-01'
+            InputLabelProps={{ shrink: true }}
             value={this.state.student.birthday}
             onChange={this.onChange('birthday')}
           />
