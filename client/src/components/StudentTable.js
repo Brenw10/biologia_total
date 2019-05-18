@@ -2,6 +2,7 @@ import React from 'react';
 import { Table, TableHead, TableRow, TableCell, TableBody, IconButton } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 export default class StudentTable extends React.Component {
   render() {
@@ -20,7 +21,7 @@ export default class StudentTable extends React.Component {
             <TableRow>
               <TableCell align="center">{row.name}</TableCell>
               <TableCell align="center">{row.email}</TableCell>
-              <TableCell align="center">{row.birthday ? row.birthday : 'N/A'}</TableCell>
+              <TableCell align="center">{row.birthday ? moment(new Date(row.birthday)).utc().format('DD/MM/YYYY') : 'N/A'}</TableCell>
               <TableCell align="center">
                 <IconButton onClick={() => this.props.onClickEdit(row)}>
                   <EditIcon />

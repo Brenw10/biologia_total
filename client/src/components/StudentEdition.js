@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Dialog, DialogTitle, TextField, DialogContent, DialogActions, Button } from '@material-ui/core';
+import moment from 'moment';
 import student from '../services/student';
 
 export default class StudentEdition extends React.Component {
@@ -60,7 +61,7 @@ export default class StudentEdition extends React.Component {
             type="date"
             fullWidth
             InputLabelProps={{ shrink: true }}
-            value={this.state.student.birthday}
+            value={moment(new Date(this.state.student.birthday)).utc().format('YYYY-MM-DD')}
             onChange={this.onChange('birthday')}
           />
         </DialogContent>
