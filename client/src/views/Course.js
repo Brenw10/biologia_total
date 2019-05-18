@@ -1,5 +1,5 @@
 import React from 'react';
-import { Fab } from '@material-ui/core';
+import { Fab, Paper, TextField } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import course from '../services/course';
 import CourseTable from '../components/CourseTable';
@@ -9,7 +9,9 @@ export default class Course extends React.Component {
   state = {
     dialog: false,
     course: {},
+    allCourses: [],
     courses: [],
+    search: '',
   }
   componentDidMount() {
     this.refresh();
@@ -17,7 +19,13 @@ export default class Course extends React.Component {
   refresh() {
     course
       .getAll()
-      .then(courses => this.setState({ courses }))
+      .then(allCourses => this.setState({ allCourses, courses: allCourses }))
+      .then(() => this.onSearch(this.state.search));
+  }
+  onSearch(value) {
+    const search = value.toLowerCase();
+    const courses = this.state.allCourses.filter(course => course.title.toLowerCase().indexOf(search) >= 0);
+    this.setState({ search: value, courses });
   }
   onCloseDialog() {
     this.setState({ dialog: false });
@@ -25,7 +33,17 @@ export default class Course extends React.Component {
   }
   render() {
     return (
-      <div>
+      <Paper className='container'>
+        <TextField
+          label="Procurar"
+          placeholder="Digite titulo do curso"
+          fullWidth
+          margin="normal"
+          InputLabelProps={{ shrink: true }}
+          helperText="Busque por algum curso"
+          value={this.state.search}
+          onChange={event => this.onSearch(event.target.value)}
+        />
         <CourseTable
           onClickEdit={course => this.setState({ dialog: true, course })}
           courses={this.state.courses}
@@ -42,7 +60,7 @@ export default class Course extends React.Component {
         >
           <AddIcon />
         </Fab>
-      </div>
+      </Paper>
     );
   }
 }
