@@ -7,7 +7,7 @@
 ## Detalhes
  > Para rodar o projeto você poderar rodar manualmente ou utilizando container do docker. Abaixo terá os steps para as duas formas:
 
-## Rodando com Docker
+## Rodando com Docker (recomendado)
   - Vá para a pasta root.
   - Rode `docker-compose build`.
   - Rode `docker-compose up`.
