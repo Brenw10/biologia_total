@@ -1,5 +1,5 @@
 mongodb:
-  local: localhost
+  local: mongodb
   port: 27017
   database: biologia
   config:

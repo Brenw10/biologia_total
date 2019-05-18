@@ -16,7 +16,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "up": "cp ./src/core/parameters.dist.js ./src/core/parameters.js && npm start"
   },
   "eslintConfig": {
     "extends": "react-app"

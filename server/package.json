@@ -5,12 +5,13 @@
   "main": "app.js",
   "scripts": {
     "start": "npx nodemon ./bin/server",
-    "test": "jest"
+    "up": "cp ./src/parameters/params.dist.yml ./src/parameters/params.yml && npm start",
+    "test": "jest --silent"
   },
   "author": "Brendon Willian de Carvalho Trindade Mota",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.0",
     "js-yaml": "^3.13.1",
     "mongoose": "^5.5.9"
   },
