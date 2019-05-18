@@ -4,7 +4,8 @@
   "description": "server side",
   "main": "app.js",
   "scripts": {
-    "start": "npx nodemon ./bin/server"
+    "start": "npx nodemon ./bin/server",
+    "test": "jest"
   },
   "author": "Brendon Willian de Carvalho Trindade Mota",
   "license": "ISC",
