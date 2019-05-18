@@ -31,6 +31,10 @@ export default class StudentEdition extends React.Component {
         .then(this.props.onClose);
     }
   }
+  canSave() {
+    const { student } = this.state;
+    return student.name && student.email;
+  }
   render() {
     return (
       <Dialog
@@ -69,7 +73,7 @@ export default class StudentEdition extends React.Component {
           <Button onClick={this.props.onClose} color="primary">
             Cancelar
             </Button>
-          <Button onClick={this.save.bind(this)} color="primary">
+          <Button onClick={this.save.bind(this)} color="primary" disabled={!this.canSave()}>
             Salvar
             </Button>
         </DialogActions>
