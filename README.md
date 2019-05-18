@@ -25,4 +25,5 @@
  - O sistema vai estar funcionando.
 
 ## Executar testes Jest
- - Acesse pasta de server e rode `npm run test`.
+ - Acesse pasta de server e rode `npm install`.
+ - Depois rode `npm run test` para executar os testes.
