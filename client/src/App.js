@@ -5,6 +5,7 @@ import Student from './views/Student';
 import RegistrationTable from './components/RegistrationTable';
 import { Grid } from '@material-ui/core';
 import Course from './views/Course';
+import Home from './views/Home';
 
 export default function App() {
   return (
@@ -13,9 +14,10 @@ export default function App() {
       <Grid container spacing={24}>
         <Grid item xs={1}></Grid>
         <Grid item xs={10}>
-          <Route path="/students" component={Student} />
-          <Route path="/courses" component={Course} />
-          <Route path="/registrations" component={RegistrationTable} />
+          <Route path="/" exact component={Home} />
+          <Route path="/students" exact component={Student} />
+          <Route path="/courses" exact component={Course} />
+          <Route path="/registrations" exact component={RegistrationTable} />
         </Grid>
         <Grid item xs={1}></Grid>
       </Grid>
