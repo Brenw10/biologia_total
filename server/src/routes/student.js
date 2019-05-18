@@ -20,8 +20,10 @@ router.put('/:id', (req, res) =>
     .catch(() => res.sendStatus(500))
 );
 
-router.post('/:id/courses/:idCourse', (req, res) =>
-  student.addCourse(req.params.id, req.params.idCourse)
+router.post('/:id/courses', (req, res) =>
+  student
+    .clearCourses(req.params.id)
+    .then(() => student.setCourses(req.params.id, req.body))
     .then(() => student.getById(req.params.id))
     .then(data => res.send(data))
 );

@@ -8,6 +8,8 @@ const create = data => new Students(data).save();
 
 const update = (id, data) => Students.findByIdAndUpdate(id, data, { new: true });
 
-const addCourse = (_id, idCourse) => Students.updateOne({ _id }, { $addToSet: { courses: idCourse } }, { new: true });
+const clearCourses = _id => Students.updateOne({ _id }, { courses: [] });
 
-module.exports = { getAll, getById, create, update, addCourse };
+const setCourses = (_id, courses) => Students.updateOne({ _id }, { $addToSet: { courses } });
+
+module.exports = { getAll, getById, create, update, clearCourses, setCourses };

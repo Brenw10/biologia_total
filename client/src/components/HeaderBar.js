@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
 import { Link } from "react-router-dom";
 import '../styles/HeaderBar.css';
 
-function HeaderBar() {
+export default function HeaderBar() {
   return (
     <div>
       <AppBar position="static">
@@ -20,5 +20,3 @@ function HeaderBar() {
     </div>
   );
 }
-
-export default HeaderBar;
