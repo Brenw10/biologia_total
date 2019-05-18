@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Select, MenuItem } from '@material-ui/core';
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Select, MenuItem, Checkbox } from '@material-ui/core';
 import student from '../services/student';
 import course from '../services/course';
 
@@ -41,10 +41,12 @@ export default class StudentCoursesEdition extends React.Component {
             fullWidth
             value={this.state.selectedCourses}
             onChange={event => this.setState({ selectedCourses: event.target.value })}
+            renderValue={list => list.map(selected => selected.title).join(', ')}
             multiple
           >
             {this.state.courses.map((course, key) => (
               <MenuItem key={key} value={course}>
+                <Checkbox checked={this.state.selectedCourses.indexOf(course) >= 0} />
                 {course.title}
               </MenuItem>
             ))}
